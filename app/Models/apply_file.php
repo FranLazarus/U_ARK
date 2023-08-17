@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\Unit\Entities;
+namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
-class Org extends Model
+class apply_file extends Model
 {
     use HasFactory;
 
@@ -15,10 +15,13 @@ class Org extends Model
      * @var string
      */
     protected $primaryKey = 'id';
-
-    protected $fillable = [
-        'title', 'org_no',
-    ];
     
-
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'user_id', 'file_path',
+    ];
 }
