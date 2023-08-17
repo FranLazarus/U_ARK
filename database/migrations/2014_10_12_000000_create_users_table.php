@@ -13,13 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
+        // ■ 使用者 => users { id, org_id, name, birthday, email,
+                            // account, password, status, created_at, updated_at}
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->bigIncrements('id');
+            $table->unsignedbigInteger('org_id')->index()->comment("單位ID");
+            $table->string('name', 50)->comment("姓名");
+            $table->date('birthday')->nullable()->comment("生日");
+            $table->string('email', 255)->comment("信箱");
+            $table->string('account', 100)->index()->comment("帳號");
+            $table->string('password', 255)->comment("密碼");
+            $table->boolean('status')->default(0)->comment('審核狀態');
             $table->timestamps();
         });
     }

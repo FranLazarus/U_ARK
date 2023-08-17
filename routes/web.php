@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +16,5 @@ Route::get('/', function () {
     return view('login');
 });
 
-
-Route::get('/register', 'RegisterController@register')->name('user.register');   //註冊
-Route::post('/apply', 'RegisterController@apply')->name('user.apply');
+Route::get('/register', 'App\Http\Controllers\RegisterController@register')->name('user.register');
+Route::post('/register', 'App\Http\Controllers\RegisterController@apply')->name('user.apply');
