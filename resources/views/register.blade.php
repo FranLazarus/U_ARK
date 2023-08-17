@@ -21,6 +21,12 @@
 @endpush
 
 @section('content')
+<div class="row mb-3">
+  <div class="col-12">
+    <a href="{{route('login')}}">返回</a>
+  </div>
+</div>
+
 <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
   <div class="align-self-center">
     <h1>建立帳號</h1>
@@ -28,7 +34,7 @@
       {{csrf_field()}}
       <div>
         <b>※&nbsp;</b>
-        <input class="form-control" name="uid" type="text" value="{{old('uid')}}" placeholder="帳號" title="帳號" required />
+        <input class="form-control" name="account" type="text" value="{{old('account')}}" placeholder="帳號" title="帳號" required />
       </div>
       <div>
         <b>※&nbsp;</b>
@@ -37,7 +43,7 @@
       <hr>
       <div>
         <b>※&nbsp;</b>
-        <input class="form-control" name="unit" type="text" value="{{old('unit')}}" placeholder="單位代碼" title="單位代碼" required/>
+        <input class="form-control" name="org_no" type="text" value="{{old('org_no')}}" placeholder="單位代碼" title="單位代碼" required/>
       </div>
       <div>
         <b>※&nbsp;</b>

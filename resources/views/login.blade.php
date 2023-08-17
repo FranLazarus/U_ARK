@@ -1,7 +1,9 @@
 @extends('layouts/main')
 @push('links')
     <style>
-
+      .form-control{
+        margin-bottom: 5px;
+      }
     </style>
 @endpush
 
@@ -12,14 +14,14 @@
     <form method="post">
       {{csrf_field()}}
       <div>
-        <input class="form-control" name="uid" type="text" value="{{old('uid')}}" placeholder="帳號" title="帳號">
+        <input class="form-control" name="account" type="text" value="{{old('account')}}" placeholder="帳號" title="帳號">
       </div>
       <div>
         <input class="form-control" name="password" type="password" value="" placeholder="密碼"  autocomplete="current-password"  title="密碼" />
       </div>
       <div class="d-flex justify-content-center">
-        <button class="btn btn-success" type="submit" title="登入">登入</button>
-        <a class="btn btn-primary ml-2" href="{{route('user.register')}}" title="建立帳號">建立帳號</a>
+        <button class="btn btn-success mt-3 me-1" type="submit" title="登入">登入</button>
+        <a class="btn btn-primary mt-3" href="{{route('user.register')}}" title="建立帳號">建立帳號</a>
       </div>
     </form>
   </div>
