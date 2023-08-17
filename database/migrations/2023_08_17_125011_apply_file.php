@@ -15,7 +15,7 @@ return new class extends Migration
     {
         // ■ 申請附檔 => apply_file { id, user_id, file_path created_at,
         // updated_at}
-        Schema::create('apply_file', function (Blueprint $table) {
+        Schema::create('apply_files', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('user_id');
             $table->text('file_path')->comment("檔案路徑");
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('apply_file');
+        Schema::dropIfExists('apply_files');
     }
 };

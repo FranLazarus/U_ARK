@@ -30,7 +30,7 @@
 <div class="d-flex justify-content-center align-items-center" style="height: 80vh;">
   <div class="align-self-center">
     <h1>建立帳號</h1>
-    <form method="post" class="mt-3">
+    <form method="post" class="mt-3" enctype="multipart/form-data">
       {{csrf_field()}}
       <div>
         <b>※&nbsp;</b>

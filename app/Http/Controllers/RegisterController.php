@@ -31,6 +31,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'birthday' => 'date|nullable|before:'.date('Y-m-d'),
             'email' => 'nullable|email',
+            'file' => 'required',
             'account' => 'required|string|max:255',
             'password' => 'required|string|max:255',
         ],[]);
@@ -48,6 +49,14 @@ class RegisterController extends Controller
         $user = User::create($validated);
 
 
+        $file_name = $request->file->getClientOriginalName();
+        $request->file->storeAs($user->id, $file_name);
+        $file_path = storage_path('app/public/'.$user->id.'/'.$file_name);
+
+        apply_file::create([
+            'user_id'=>$user->id,
+            'file_path'=>$file_path,
+        ]);
 
         return redirect()->route('login');
     }
