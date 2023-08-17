@@ -14,5 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
+
+
+Route::get('/register', 'RegisterController@register')->name('user.register');   //註冊
+Route::post('/apply', 'RegisterController@apply')->name('user.apply');
